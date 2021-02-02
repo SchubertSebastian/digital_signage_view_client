@@ -1,0 +1,51 @@
+= Besprechungsprotokoll 27.04.2020
+Florian Schickmair
+1.0, 2020-04-27
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+|Prof. Reder (teilweise)
+|
+
+|Prof. Stütz
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|Mo. 27.4.2020, 1. und 2. Einheit
+
+|===
+
+
+
+== Besprochene Themen
+
+* Github- Repo
+* Testen der Rest Schnittstellen
+
+
+
+=== Vereinbarungen und Entscheidungen
+
+-> Fehlerhafte Projektdateistruktur im Git Repo korrigiert.
+
+Bei der Auflistung der CMS Zugiffe unter der Tabelle jeden Zugriff mit dem dazugehörigen Code aus [yellow]#xibo-tstore.js# dokumentieren. +
+Ordner "http-requests" mit den REST Requests erstellen. +
+Repo erstellen: webclient rest test

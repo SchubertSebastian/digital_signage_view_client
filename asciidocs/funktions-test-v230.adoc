@@ -1,0 +1,53 @@
+= Funktions Tests Version 2.3.0
+Florian Schickmair, Sebastian Schubert
+:toclevels: 4
+:toc-title: Inhaltsverzeichnis
+:numbered:
+:toc: left
+
+== Funktionen
+
+* [x] Loggin
+* [x] DisplayGroup auswählen
+* [x] Laden des Layouts
+** [x] Laden der Regions
+*** [x] Laden der Inhalte
+**** [x] Laden der Vorschaubilder
+**** [x] Laden der Einstellungen
+***** [x] Laden des Anzeige Datums 
+***** [x] Laden der Anzeige Dauer
+* [x] Bearbeitung
+** [x] Datei hochladen
+** [x] Datei in Region geben
+** [x] Verendern der Einstellungen
+* [ ] Speichern
+** [x] Veränderte Inhalte übernehmen
+** [ ] Einstellungen übernehmen
+
+
+----
+Bug: Neues Xibo Layout vermist einige Icons in Opera.
+----
+
+== Ergebnis
+
+Die Bearbeitung wird nur Teilweise gespeichert. 
+
+=== Detail
+
+Das hinzufügen oder löschen einer Datei in einer Region werden gespeichert und wieder korrekt geladen.
+
+Das Spiechern von den Einstellunge, Dauer und Datum, werden hingegen nicht bzw. falsch gespeichert.
+Die Dauer kann nicht normal gespeichert werden (Ladeanzeige = infinity).
+----
+Doch durch betätigen des Speicherknopfes (+etwas warten) und anschliesendes Zurückgehen über den Zurückknopfes, ist es dann möglich im 'Overview' Bildschierm korrekt zu Speichern.
+----
+
+Beim Datum wird das 'von' falsch gespeicher und das 'bis' garnicht. 
+
+=== Grund
+
+----
+Expecting a date in fromDt but received Invalid date.
+----
+

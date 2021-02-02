@@ -1,0 +1,71 @@
+= Besprechungsprotokoll 24.04.2020
+Florian Schickmair
+1.0, 2020-04-24
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+
+
+|Prof. Stütz
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|Fr. 24.4.2020, 7. Einheit
+
+|===
+
+
+
+== Besprochene Themen
+
+* Github- Repo
+* Testen der Rest Schnittstellen
+
+
+
+=== Vereinbarungen und Entscheidungen
+
+-> Wie die Dokumentation aussehen soll:
++
+ASCIDOCTOR Tabelle; Links: "Medium zu Library hinzufügen", Request aus mit Header und Body
+"testNR 23", wo finde ich das im Code
++
+Oder/und Tabelle mit allen Funktionen des Clients machen (Was kann der Client alles?) ..hinzufügen von Medien, löschen, Lauftext, gew. Dinge ein und ausschalten, über Buttons gewisse Regionen auf geschlossen setzen,...
+
+
+Variante 2) +
+GUI Test Client z.B. Selenium:
+schauen ob alles funktioniert,
+gewisse Operationen durchführen, mit Test Client überprüfen ob diese Operationen gelungen sind
+
+Jeden einzelnen Zugriff heraussuchen:
+kann sein dass er was ändert - auf Liste schreiben
+wenn wir wissen was wir prüfen überlegen mit was: Insomnia
+
+
+Jenkins: Automatisierer +
+
+** Testplanung +
+** Testdurchführeung +
+** Testprotokoll +
+** Ergebnisse sehen
+
+image:../../images/client_tester.png[clienttester,800,250]

@@ -1,0 +1,48 @@
+= Besprechungsprotokoll 23.04.2020
+Florian Schickmair
+1.0, 2020-04-23
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+
+|Prof. Eisserer
+|
+
+|Prof. Engleitner
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|Do. 23.4.2020, 5. Einheit
+
+|===
+
+
+
+== Besprochene Themen
+
+
+* Dokumentation der Rest Schnittstellen
+
+
+
+=== Vereinbarungen und Entscheidungen
+
+zum Testen der Rest Schnittstelle zum CMS: Programmierdokumentation, bei welcher Variablen, Parameter, Rückgabewerte der Funktionen dokumentiert werden.

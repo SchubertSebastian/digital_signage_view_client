@@ -1,0 +1,60 @@
+= Besprechungsprotokoll 14.06.2020
+Florian Schickmair
+1.0, 2020-06-14
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+
+
+|Prof. Stütz
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|So. 14.06.2020 15:18 - 16:10
+
+|===
+
+
+
+== Besprochene Themen
+
+* Dokumentation der automatisierten Rest-Tests
+
+
+=== Vereinbarungen und Ausführungen
+
+Es wurde eine Test-Order erstellt (@TestMethodOrder). +
+Der zu testende Code gehört in die Doku eingebunden: +
+
+Struktur der Dokumentation: +
+1. Use Case (Ist-Zustand aus der User-Sicht) +
+2. Zu testender Code (Ist Zustand - mit Link auf das original Repo) +
+3. Testfälle (Problem) +
+3.1 Testfall 1 +
+3.1.2 Response +
+3.2 Testfall 2
+
+
+Test-Doku aus zeitlichen Gründen nicht durchbesprochen worden.
+
+
+
+

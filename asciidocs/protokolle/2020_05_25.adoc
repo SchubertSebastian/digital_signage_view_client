@@ -1,0 +1,50 @@
+= Besprechungsprotokoll 25.05.2020
+Florian Schickmair
+1.0, 2020-05-25
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+|Prof. Reder
+|
+
+|Prof. Stütz
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|Mo. 25.5.2020, 4. Einheit
+
+|===
+
+
+
+== Besprochene Themen
+
+* Automatisierte Tests
+
+
+
+
+=== Vereinbarungen und Entscheidungen
+
+Es soll nun der aktuelle Client genutzt werden um automatisiert die Abfragen zu verschicken.
+
+
+image:../../images/test.png[test,800,250]

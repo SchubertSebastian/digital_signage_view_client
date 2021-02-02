@@ -1,0 +1,115 @@
+= Besprechungsprotokoll 14.12. 2020
+Florian Schickmair
+1.0, 2020-06-14
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+
+|Prof. Stütz
+|
+
+
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Chemiesaal
+
+|Zeit
+|Di. 14.12.2020 10:50
+
+|===
+
+
+
+== Besprochene Themen
+
+* Video
+
+
+=== Vereinbarungen und Ausführungen
+
+
+Es wurde vereinbart ein Video über das Testen zu machen (Testen allgemein, nicht  auf das Projekt bezogen). +
+
+* Inhalt: +
+** verschiedene Arten von Tests
+** nicht nur technische Aspekte
+
+** behaviour driven development: "Das was der Kunde braucht" (use case diagram)
+** in karate
+** kurz erklären, dass nicht nur technische Sachen im Vordergrund stehen
+
+* Ablauf:
+
+**  UML diagramm herzeigen/Use Cases anschließend in scenario und feature (karate) darstellen.
+**  Ein einfaches Bsp. in ein paar Minuten erklären.
+
+** Abschließend sagen wir, dass wir die "Tester" sind, aber auch programmieren.
+
+
+
+
+---
+
+"TESTEN"
+
+Flo bekommt kein Essen beim Automaten. Die Maschine piepst.
+Da muss ein Fehler im Programm sein.
+Doch wie kann das Passieren
+
+Beim Programmieren kann es passieren, dass man mit der Zeit Fehler macht und das Programm dann nicht mehr wie gewünscht funktioniert.
+
+Darum ist es wichtig Software zu Testen, um zu überprüfen, ob man das richtige macht und ob's funktioniert.
+Testen ist ein wichtiger Teil der Softwareentwicklung.
+
+Doch wie geht man beim Testen vor?
+
+Um sicherzustellen, dass der Kunde das erhält was er will, werden Projekte in sogenannte Use Cases, auf deutsch Anwendungsfalle unterteilt.
+
+Diese Anwendungsfälle sind die verschiedenen Funktionen die das Produkt hat z.B.:
+Sie besuchen einen Online Shop und müssen dafür einen Account ersetellen.
+
+----
+UML Diagramm
+----
+
+Das "Account erstellen" ist dabei ein UseCase.
+
+Im Laufe der Projektentwicklung müssen alle Use cases abgeabeitet werden. Doch die Projektentwicklung verläuft nicht fehlerfrei und deswegen muss ein Programm getestet werden.
+Um beim vorigen Bsp zu bleiben, was kann bei einem Login alles passieren? +
+
+ * korrekte Anmeldung
+ * kein Passwort
+ * zu kurzes Passwort
+ * ungültiges Passwort
+
+Für jeden dieser Fälle muss einzeln überprüft werden, ob das Programm richtig reagiert.
+Wird zum Beispiel ein falsches Passwort eingegeben, muss das Programm eine entsprechende Fehlermeldung anzeigen.
+
+Wie sieht so ein Test aus? +
+
+Bei unserem Schulprojekt haben wir, wie im folgenden Bsp gezeigt wird, Karate verwendet. Was ist Karate? Karate ist ein "Framework", dass dabei hilf Tests für Programme zu schreiben.
+
+
+----
+KARATE Beispiel, Testfälle herzeigen
+----
+
+
+
+
+

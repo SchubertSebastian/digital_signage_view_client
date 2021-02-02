@@ -1,0 +1,1004 @@
+= Zugiffe des Web Clients zum CMS System XIBO
+Schickmair
+1.0, 2020-03-01
+ifndef::sourcedir[:sourcedir: ../webclient]
+ifndef::imagesdir[:imagesdir: images]
+ifndef::backend[:backend: html5]
+:hide-uri-scheme:
+:icons: font
+:toc: left
+Alle Zugriffe zum CMS befinden sich in der Datei [yellow]#assets/xibo-tstore.js# ab Zeile 707 in "const xiboApiActions".
+
+* Übersicht aller Zugriffe: +
+
+
+|===
+|Nummer  |Beschreibung | Methodenname |http |Request  | Parameter
+
+
+|1
+|<<Einloggen>>
+|[yellow]#login#
+|POST
+|[green]#url/cms/login#
+|username:string +
+password: string
+
+|2
+|<<Medium zu Library hinzufügen>>
+|[yellow]#postLibraryItem#
+|POST
+|[green]#url/api/library#
+|files:File +
+oldMediaId: number +
+updateInLayouts:
+
+
+|3
+|<<Medium von Library löschen>>
+|[yellow]#deleteLibraryItem#
+|DELETE
+|[green]#url/api/library/#
+|mediaId:number
+
+|4
+|<<Get Benutzer Details>>
+|[yellow]#getUser#
+|GET
+|[green]#url/api/user/me#
+|-
+
+
+|5
+|<<Get Layouts>>
+|[yellow]#getLayouts#
+|GET
+|[green]#url/api/layout#
+|name: string
+
+
+|6
+|<<Get checked out Layouts>>
+|[yellow]#getCheckedOutLayout#
+|GET
+|[green]#url/api/layout#
+|layoutId:number
+
+
+|7
+|<<Checkout Layout>>
+|[yellow]#checkoutLayout#
+|PUT
+|[green]#url/api/layout/checkout/#
+|layoutId:number
+
+
+|8
+|<<Layout veröffentichen>>
+|[yellow]#publishLayout#
+|PUT
+|[green]#url/api/layout/publish/#
+|layoutId:number
+
+
+|9
+|<<Get Playlist Items>>
+|[yellow]#getPlaylistItems#
+|GET
+|[green]#url/api/playlist/widget/#
+|region:XiboRegion
+
+
+|10
+|<<Playlist Item löschen>>
+|[yellow]#deletePlaylistItem#
+|DELETE
+|[green]#url/api/playlist/widget/#
+|itemId:number
+
+
+
+|11
+|<<Tags zu Dateien hinzufügen>>
+|[yellow]#postFileTags#
+|POST
+|[green]#url/api/library/{mediaId}/tag#
+|mediaId:number +
+tags: string[]
+
+
+|12
+|<<Get files>>
+|[yellow]#getFiles#
+|GET
+|[green]#url/api/library#
+|fileName: string +
+mediaId: number
+
+
+|13
+|<<Datei zu Playlist hinzufügen>>
+|[yellow]#postFilesToPlaylist#
+|POST
+|[green]#url/api/playlist/library/assign/#
+|playlistId: number +
+mediaIds: number[]
+
+
+|14
+|<<Widget zu Playlist hinzufügen>>
+|[yellow]#postWidgetToPlaylist#
+|POST
+|[green]#url/api/playlist/widget/{widgetType}/{playlistId}#
+|playlistId: playlistId: number +
+widgetType: string
+
+
+
+|15
+|<<Post PlaylistItemOrder>>
+|[yellow]#postPlaylistItemOrder#
+|POST
+|[green]#url/api/playlist/order/#
+|playlistId: number +
+ playlistItems: ReducedXiboPlaylistItem[]
+
+
+
+|16
+|<<Hinzufügen von Audiodateien zu einem bestimmten Widget>>
+|[yellow]#putPlaylistItemAudio#
+|PUT
+|[green]#url/api/playlist/widget/{playlistItem.widgetId}/audio#
+|playlistItem: XiboPlaylistItem +
+widgetId: number
+
+
+|17
+|<<Put Playlist Item Duration>>
+|[yellow]#putPlaylistItemDuration#
+|PUT
+|[green]#url/api/playlist/widget/{playlistItem.widgetId}#
+|playlistItem: XiboPlaylistItem
+
+
+|18
+|<<Put Playlist Item expiry>>
+|[yellow]#putplaylistitemexpiry#
+|PUT
+|[green]#url/api/playlist/widget/{playlistItem.widgetId}/expiry#
+|playlistItem: XiboPlaylistItem
+
+
+|19
+|<<Put Playlist Item Widget>>
+|[yellow]#putplaylistitemwidget#
+|PUT
+|[green]#url/api/playlist/widget/{widgetId}#
+|widgetId: number +
+ widgetData: any
+
+
+|20
+|<<Get Displaygroups>>
+|[yellow]#getdisplaygroups#
+|GET
+|[green]#url/api/displaygroup#
+|-
+
+
+|21
+|<<Get Displays>>
+|[yellow]#getdisplay#
+|GET
+|[green]#url/api/display#
+|displayGroupId: number
+
+|22
+|<<Get Media download>>
+|[yellow]#getmediadownload#
+|GET
+|[green]#url//cms/thumbnail/?mediaId={mediaId}&phpsessid={context.state.phpsessid}#
+|mediaId: number
+
+
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+== Einloggen
+
+* Header:
+----
+https://vm82.htl-leonding.ac.at/web/cms/login
+POST
+192.88.24.182:443
+200 OK
+HTTP/2
+no-referrer-when-downgrade
+----
+----
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Connection: keep-alive
+Content-Length: 54
+Content-Type: application/json
+Cookie: PHPSESSID=m2e153gbl7hjmgnvt2b56s0qrb
+Host: vm82.htl-leonding.ac.at
+Origin: https://vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/login
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+{"username":"schickmair","password":"passme"}
+----
+
+
+.Programmcode:
+[source,java,linenums]
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=get-authentication-token,indent=0]
+----
+
+
+
+== Medium zu Library hinzufügen
+
+* Header
+----
+https://vm82.htl-leonding.ac.at/web/api/library
+POST
+192.88.24.182:443
+200 OK
+HTTP/2
+no-referrer-when-downgrade
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer monqFeH7CWi4pkiNHRqvi2cTsWcvmkerovnYTiE7
+Connection: keep-alive
+Content-Length: 745317
+Content-Type: multipart/form-data; boundary=…--994237481336823698684017267
+Cookie: PHPSESSID=m2e153gbl7hjmgnvt2b56s0qrb
+Host: vm82.htl-leonding.ac.at
+Origin: https://vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/613
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+Content-Disposition: form-data; name="files"; filename="ski.jpg"
+Content-Type: image/jpeg
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=post-library-item,indent=0]
+----
+
+
+
+== Medium von Library löschen
+
+* Header
+----
+Angefragte Adresse:https://vm82.htl-leonding.ac.at/web/api/library/280
+Anfragemethode:DELETE
+Externe Adresse:192.88.24.182:443
+Status-Code:
+204
+Version:HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer monqFeH7CWi4pkiNHRqvi2cTsWcvmkerovnYTiE7
+Connection: keep-alive
+Cookie: PHPSESSID=m2e153gbl7hjmgnvt2b56s0qrb
+Host: vm82.htl-leonding.ac.at
+Origin: https://vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/613
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+-
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=delete-library-item,indent=0]
+----
+
+
+
+== Get Benutzer Details
+
+* Header
+----
+Angefragte Adresse:https://vm82.htl-leonding.ac.at/web/api/user/me
+Anfragemethode:GET
+Externe Adresse:192.88.24.182:443
+Status-Code:
+200 OK
+Version:HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer monqFeH7CWi4pkiNHRqvi2cTsWcvmkerovnYTiE7
+Connection: keep-alive
+Cookie: PHPSESSID=m2e153gbl7hjmgnvt2b56s0qrb
+Host: vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/login
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+-
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=get-user-informations,indent=0]
+----
+
+
+
+== Get Layouts
+
+* Header
+----
+Angefragte Adresse:https://vm82.htl-leonding.ac.at/web/api/layout?layout=&tags=&retired=0
+Anfragemethode:GET
+Externe Adresse:192.88.24.182:443
+Status-Code: 400
+Version:HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer
+Cache-Control: no-cache
+Connection: keep-alive
+Cookie: PHPSESSID=m2e153gbl7hjmgnvt2b56s0qrb
+Host: vm82.htl-leonding.ac.at
+Pragma: no-cache
+Referer: https://vm82.htl-leonding.ac.at/web/
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+layout	""
+tags	""
+retired	"0"
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=get-layouts,indent=0]
+----
+
+
+
+== Get checked out Layouts
+
+* Header
+----
+Angefragte Adresse:http://localhost:3000/api/layout?parentId=614&embed=regions%2Cplaylists%2Cwidgets
+Anfragemethode:GET
+Externe Adresse:127.0.0.1:3000
+Status-Code: 200 OK
+Version:HTTP/1.1
+Referrer Policy:no-referrer-when-downgrade
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer uSQmUeSzSn3ZNdwN6pZc2wPJ5vyfXbKsi2NdbeOU
+Connection: keep-alive
+Cookie: Idea-e2a4cb6d=19a2cc7c-6466-4a…s-timestamper-offset=-3600000
+Host: localhost:3000
+Referer: http://localhost:3000/action/basic/614
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/76.0
+----
+* Body
+----
+parentId	"614"
+embed	"regions,playlists,widgets"
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=get-checked-layouts,indent=0]
+----
+
+== Checkout Layout
+
+* Header
+----
+Angefragte Adresse:https://vm82.htl-leonding.ac.at/web/api/layout/checkout/632
+Anfragemethode:PUT
+Externe Adresse:192.88.24.182:443
+Status-Code: 200 OK
+Version:HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer BkQL29FFJDwgEW4eJcuwfhAGQUiilFBQYSbgPFxM
+Connection: keep-alive
+Content-Length: 0
+Cookie: PHPSESSID=m2e153gbl7hjmgnvt2b56s0qrb
+Host: vm82.htl-leonding.ac.at
+Origin: https://vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/basic/632
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+-
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=check-out-layouts,indent=0]
+----
+
+
+
+== Layout veröffentichen
+
+* Header
+----
+Angefragte Adresse:https://vm82.htl-leonding.ac.at/web/api/layout/publish/631
+Anfragemethode:PUT
+Externe Adresse:192.88.24.182:443
+Status-Code:
+200
+Version:HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer BkQL29FFJDwgEW4eJcuwfhAGQUiilFBQYSbgPFxM
+Connection: keep-alive
+Content-Length: 12
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+Cookie: PHPSESSID=m2e153gbl7hjmgnvt2b56s0qrb
+Host: vm82.htl-leonding.ac.at
+Origin: https://vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/basic/631
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+publishNow	"1"
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=publish-layout,indent=0]
+----
+
+
+
+== Get Playlist Items
+
+* Header
+----
+Angefragte Adresse:https://vm82.htl-leonding.ac.at/web/api/playlist/widget?playlistId=4642
+Anfragemethode:GET
+Externe Adresse:192.88.24.182:443
+Status-Code: 200 OK
+Version:HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer GXhijykINROPqhQVOIrmfkUSnODv2doQUobXmBv9
+Connection: keep-alive
+Cookie: PHPSESSID=gb3uec10hi5voa160tdhvn6r39
+Host: vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/basic/613
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+playlistId	"4642"
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=get-playlist-items,indent=0]
+----
+
+
+== Playlist Item löschen
+* Header
+----
+Angefragte Adresse: https://vm82.htl-leonding.ac.at/web/api/playlist/widget/12843
+Anfragemethode: DELETE
+Externe Adresse: 192.88.24.182:443
+Status-Code: 200 OK
+Version: HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer GXhijykINROPqhQVOIrmfkUSnODv2doQUobXmBv9
+Connection: keep-alive
+Cookie: PHPSESSID=gb3uec10hi5voa160tdhvn6r39
+Host: vm82.htl-leonding.ac.at
+Origin: https://vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/627
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+-
+----
+[source,java,linenums]
+.Programmcode:
+
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=delete-playlist-items,indent=0]
+----
+
+
+== Tags zu Dateien hinzufügen
+* Header
+----
+Angefragte Adresse: https://vm82.htl-leonding.ac.at/web/api/library/281/tag
+Anfragemethode: POST
+Externe Adresse: 192.88.24.182:443
+Status-Code: 200 OK
+Version: HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer lozUJkSViipunXJWvCnZveliqsbhFRIV7Uq5J9Z3
+Connection: keep-alive
+Content-Length: 184
+Content-Type: multipart/form-data; boundary=…17549189640724917692205812658
+Cookie: PHPSESSID=gb3uec10hi5voa160tdhvn6r39
+Host: vm82.htl-leonding.ac.at
+Origin: https://vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/632
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+-----------------------------117549189640724917692205812658
+Content-Disposition: form-data; name="tag[]"
+
+feuerkogel
+-----------------------------117549189640724917692205812658--
+----
+
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=add-tags,indent=0]
+----
+
+
+== Get files
+* Header
+----
+Request URL:http://localhost:3000/cms/thumbnail/?mediaId=277&phpsessid=k6h0tf29l7v163pk466bd2c18j&preview=1&width=40&height=40&cache=1
+Request Method:GET
+Remote Address:127.0.0.1:3000
+Status Code:
+200
+Version:HTTP/1.1
+Referrer Policy:no-referrer-when-downgrade
+----
+----
+Accept: image/webp,*/*
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.5
+Connection: keep-alive
+Host: localhost:3000
+Referer: http://localhost:3000/action/628
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/72.0
+----
+* Body
+----
+mediaId	277
+phpsessid	k6h0tf29l7v163pk466bd2c18j
+preview	1
+width	40
+height	40
+cache	1
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=get-files,indent=0]
+----
+
+
+== Datei zu Playlist hinzufügen
+* Header
+----
+
+Angefragte Adresse:https://vm82.htl-leonding.ac.at/web/api/playlist/library/assign/4778
+Anfragemethode:POST
+Externe Adresse:192.88.24.182:443
+Status-Code: 200 OK
+Version:HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer lozUJkSViipunXJWvCnZveliqsbhFRIV7Uq5J9Z3
+Connection: keep-alive
+Content-Length: 175
+Content-Type: multipart/form-data; boundary=…-5252887411252691070605496845
+Cookie: PHPSESSID=gb3uec10hi5voa160tdhvn6r39
+Host: vm82.htl-leonding.ac.at
+Origin: https://vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/632
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+-----------------------------5252887411252691070605496845
+Content-Disposition: form-data; name="media[]"
+
+281
+-----------------------------5252887411252691070605496845--
+
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=add-file-playlist,indent=0]
+----
+
+
+== Widget zu Playlist hinzufügen
+* Header
+----
+
+
+----
+----
+----
+* Body
+----
+
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=widget-to-playlist,indent=0]
+----
+
+
+
+== Post PlaylistItemOrder
+* Header
+----
+Angefragte Adresse:https://vm82.htl-leonding.ac.at/web/api/playlist/order/4779
+Anfragemethode:POST
+Externe Adresse:192.88.24.182:443
+Status-Code: 200 OK
+Version:HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer z4Yg7xVMmUHXmaWtIGPOa9LKxRnSXe5dzLINgUPh
+Connection: keep-alive
+Content-Length: 182
+Content-Type: multipart/form-data; boundary=…14965244941745113059459084713
+Cookie: PHPSESSID=uev650cbcc0ne034rjpm5hqhlb
+Host: vm82.htl-leonding.ac.at
+Origin: https://vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/632
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+-----------------------------14965244941745113059459084713
+Content-Disposition: form-data; name="widgets[12919]"
+
+0
+-----------------------------14965244941745113059459084713--
+
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=post-playlist-item-order,indent=0]
+----
+
+
+== Hinzufügen von Audiodateien zu einem bestimmten Widget
+* Header
+----
+
+
+----
+----
+----
+* Body
+----
+
+----
+
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=add-audio-widget,indent=0]
+----
+
+
+
+== Put Playlist Item Duration
+* Header
+----
+Angefragte Adresse:http://localhost:3000/api/playlist/widget/12960
+Anfragemethode:PUT
+Externe Adresse:127.0.0.1:3000
+Status-Code: 200 OK
+Version:HTTP/1.1
+Referrer Policy:no-referrer-when-downgrade
+
+----
+----
+Accept: */*
+Accept-Encoding: gzip, deflate
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer EgUGCzAXisx2YmwmqpcUXX8BbAIaydyvHZqIJnRu
+Connection: keep-alive
+Content-Length: 25
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+Cookie: Idea-e2a4cb6d=19a2cc7c-6466-4a…s-timestamper-offset=-3600000
+Host:localhost:3000
+Origi: http://localhost:3000
+Referer: http://localhost:3000/action/628
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/76.0
+----
+* Body
+----
+duration	"10"
+useDuration	"1"
+
+duration=10&useDuration=1
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=put-playlist-item-duration,indent=0]
+----
+
+
+
+== Put Playlist Item expiry
+* Header
+----
+Angefragte Adresse: https://vm82.htl-leonding.ac.at/web/api/playlist/widget/12916/expiry
+Anfragemethode: PUT
+Externe Adresse:192.88.24.182:443
+Status-Code: 422 No Reason Phrase
+Version: HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+
+----
+
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer z4Yg7xVMmUHXmaWtIGPOa9LKxRnSXe5dzLINgUPh
+Connection: keep-alive
+Content-Length: 25
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+Cookie: PHPSESSID=uev650cbcc0ne034rjpm5hqhlb
+Host: vm82.htl-leonding.ac.at
+Origin: https://vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/632
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+fromDt:	2016-05-28+06:27:00
+toDt:	2020-05-10+16:48:31
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=putplaylistitemexpiry,indent=0]
+----
+
+
+== Put Playlist Item Widget
+* Header
+----
+Angefragte Adresse:https://vm82.htl-leonding.ac.at/web/api/playlist/widget/12942
+Anfragemethode:PUT
+Externe Adresse:192.88.24.182:443
+Status-Code: 200 OK
+Version:HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+----
+
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer z4Yg7xVMmUHXmaWtIGPOa9LKxRnSXe5dzLINgUPh
+Connection: keep-alive
+Content-Length: 25
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+Cookie: PHPSESSID=uev650cbcc0ne034rjpm5hqhlb
+Host: vm82.htl-leonding.ac.at
+Origin: https://vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/632
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+duration	"10"
+useDuration	"1"
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=putplaylistitemwidget,indent=0]
+----
+
+== Get Displaygroups
+
+* Header
+----
+Angefragte Adresse:https://vm82.htl-leonding.ac.at/web/api/displaygroup
+Anfragemethode:GET
+Externe Adresse:192.88.24.182:443
+Status-Code: 200 OK
+Version:HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+----
+
+----
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Authorization: Bearer oqIwpHackwlsPwZF9hAuN7aityrf8mulm8N91QUJ
+Connection: keep-alive
+Cookie: PHPSESSID=cio2588sq7vrpapim13i3r2t7q
+Host: vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/basic/632
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+-
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=getdisplaygroups,indent=0]
+----
+
+== Get Displays
+
+
+* Header
+----
+Request URL:http://localhost:3000/api/display?displayGroupId=6&start=10&length=10
+Request Method:GET
+Remote Address:127.0.0.1:3000
+Status Code:
+200
+Version:HTTP/1.1
+Referrer Policy:no-referrer-when-downgrade
+----
+
+----
+Accept: */*
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.5
+Authorization: Bearer 1ci2EdAoXcjR2VUpmTqSkA72MMCTt49wiLsvRYtT
+Connection: keep-alive
+Host: localhost:3000
+Referer: http://localhost:3000/action/614
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/72.0
+----
+* Body
+----
+displayGroupId	6
+start	10
+length	10
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=getdisplay,indent=0]
+----
+
+== Get Media download
+
+
+* Header
+----
+Angefragte Adresse: https://vm82.htl-leonding.ac.at/web/cms/thumbnail/?mediaId=273&phpsessid=l66a7mplrp84euaaifpcscic3t&preview=1&width=40&height=40&cache=1
+Anfragemethode: GET
+Externe Adresse:192.88.24.182:443
+Status-Code: 200 OK
+Version: HTTP/2
+Referrer Policy:no-referrer-when-downgrade
+----
+
+----
+Accept: image/webp,*/*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Connection: keep-alive
+Cookie: PHPSESSID=cio2588sq7vrpapim13i3r2t7q
+Host: vm82.htl-leonding.ac.at
+Referer: https://vm82.htl-leonding.ac.at/web/action/627
+TE: Trailers
+User-Agent: Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0
+----
+* Body
+----
+mediaId	"273"
+phpsessid	"l66a7mplrp84euaaifpcscic3t"
+preview	"1"
+width	"40"
+height	"40"
+cache	"1"
+----
+[source,java,linenums]
+.Programmcode:
+----
+include::{sourcedir}/assets/xibo-tstore.js[tag=getmediadownload,indent=0]
+----

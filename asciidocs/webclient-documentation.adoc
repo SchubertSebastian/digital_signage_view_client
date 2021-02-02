@@ -1,0 +1,81 @@
+= VIEW CLIENT Documentation
+Florian Schickmair, Sebastian Schubert
+:toclevels: 4
+:toc-title: Inhaltsverzeichnis
+:numbered:
+:toc: left
+
+== Login
+
+Wenn man sich mit dem View-Client verbindet landet man zuerst auf dieser Login Seite.
+
+image:../images/screenshot/login_1.png[]
+
+=== Funktion
+
+Lorum ipsum
+
+=== Login Fail
+
+Bei eingabe eines falschen Passwortes oder User erhält man diese Fehler Meldung.
+
+image:../images/screenshot/login_fail_1.png[]
+
+==== Funktion
+
+Lorum ipsum
+
+==== Bug
+
+Diese Fehlermeldung tritt auch auf wenn der Nutzer kein Super-Admin ist.
+
+== Startseite
+
+Nach dem Login erscheint die Startseite auf welcher die Displaygruppen aufgelistet werden.
+image:../images/screenshot/home_1.png[]
+
+== Display Overview
+Wählt man eine Displaygruppe aus gelangt man zu einer Übersicht der Gruppe.
+
+image:../images/screenshot/display_overview_1.png[]
+
+== Display Editor
+
+Hier werden die Regions einer Displaygruppe angezeigt.
+
+image:../images/screenshot/display_editor_1.png[]
+
+
+== Display bearbeiten
+
+image:../images/screenshot/display_editor_edit_2.png[]
+
+== Dateien hochladen
+Nachdem eine Datei hochgeladen wurde erscheint diese in dem Preview Fenster 'Medien' und kann mittels drag-and-drop in eine Region gezogen werden.
+
+image:../images/screenshot/display_editor_uploade_1.png[]
+
+== Medien - Einstellungen
+
+image:../images/screenshot/medienleiste.png[]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

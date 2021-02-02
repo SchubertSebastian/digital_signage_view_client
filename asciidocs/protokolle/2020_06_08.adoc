@@ -1,0 +1,84 @@
+= Besprechungsprotokoll 08.06.2020
+Florian Schickmair
+1.0, 2020-05-25
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+
+
+|Prof. Stütz
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|HTL Leonding
+
+|Zeit
+|Mo. 08.06.2020, 1. und 2. Einheit
+
+|===
+
+
+
+== Besprochene Themen
+
+* Automatisierte Tests
+
+
+=== Vereinbarungen und Entscheidungen
+
+- Dateibenennung bei Protokollen: yyyy-mm-dd.adoc +
+- Links im README funktionierten nicht / image Pfade bei den Github pages falsch
+
+Bis zum 15. Juni 2020 zu erledigen:
+
+* 1. Dokumentation: +
++
+Für 3 Methoden alle Wege/Pfade durchgehen und anschließend dokumentieren: Z.B wenn der User etwas uploaden will dies mit ein paar Zeilen beschreiben (was der Client macht / was der User tun muss). +
+Dabei soll im Java Rest Test Projekt ein ascidoc File erstellt werden in welchem mit 'include' der Code der Tests eingebunden wird.
+
+
+
+image:../../images/08_06_2020.png[test]
+
+---
+* 2. Testablauf: +
+
++
+Es soll eine vorbereitete Testumgebung erstellt
+werden und eine Dokumentation/ Anleitung wie die
+Tests durchgeführt werden: Version von XIBO ändern,
+andere Einstellungen durchführen...
+
+
+
+image:../../images/08_06_2020_1.png[test,800,250]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+= Besprechungsprotokoll 30.10.2020
+Florian Schickmair
+1.0, 2020-06-14
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+
+|Halil Bahar
+|
+
+
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|Fr. 30.10.2020 13:00
+
+|===
+
+
+
+== Besprochene Themen
+
+* REST API Test mit Karate
+
+
+=== Vereinbarungen und Ausführungen
+
+* Karate Duku durchgehen
+
+github.com/inuit/karate
+
+Wichtige Kapitel: +
+
+* Start: Name Conventions +
+* Run: Junit5 +
+* Report: Configuration (karate.config im root Ordner, man kann Umgebungsvariablen verwenden), Junit HTML Reports (HTML seite erstellt), Logging (vlt.) +
+* Types: JSON, JAVAScript Funktions, Reading files, Karate Expressions +
+* Variables: alles, def am wichtigsten +
+* Action alles +
+* Http: alles +
+* Request: alles +
+* Response: wichtig +
+* Assert: wichtig
+
+
+Halil erstellt ein Script zum automatischen Erstellen der Testumgebung (XIBO-CMS) mittels Testcontainers. +
+Halil übernimmt die Basiskonfiguration von Karate. +
+Wir haben vereinbart gemeinsam mit Halil die weitere Vorgehensweise zu besprechen.
+
+

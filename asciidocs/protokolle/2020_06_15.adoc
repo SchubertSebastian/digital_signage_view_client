@@ -1,0 +1,51 @@
+= Besprechungsprotokoll 15.06.2020
+Florian Schickmair
+1.0, 2020-06-14
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+
+
+|Prof. Stütz
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|Mo. 15.06.2020 2. Einheit
+
+|===
+
+
+
+== Besprochene Themen
+
+* Dokumentation der automatisierten Rest-Tests
+
+
+=== Vereinbarungen und Ausführungen
+
+zu erledigen: +
+CMS Versionsnummer in die Dukumentation schreiben. (um Tests nachvollziehbar zu machen, nachbauen zu können)  +
+
+Die wichtigsten Requests/Standardabläufe überlegen ( wie zB Timelines einrichten, Dauer ändern), dokumentieren und anschließend mit verschiedenen CMS Versionen testen.
+
+Surefire: +
+Das falsche Surefire Plugin wurde installiert.
+Wir haben die pom überarbeitet und Surefire gefixt. Das CSS funktioniert jedoch noch nicht.

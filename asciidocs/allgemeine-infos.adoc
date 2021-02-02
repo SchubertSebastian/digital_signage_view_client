@@ -1,0 +1,52 @@
+= CMS und Webclient Übersicht
+
+Systemarchitektur:
+
+
+image:../images/SYS.png[logo,800,200]
+
+TIP: Wenn man mit "vm82.htl-leonding.ac.at/login" nicht auf Xibo kommt, oder allgemein kein Anmelden möglich ist, den docker-container einfach neu starten.
+
+== XIBO
+
+image:../images/xiboo.PNG[logo,800,410]
+
+An der HTL Leonding gibt es ein sogenanntes Digital Signage. Dieses besteht aus mehreren Bildschirmen (Displays) welche im Gebäude verteilt sind. Darauf werden verschiedene Inhalte, wie zum Beispiel Wetter-Informationen, Uhrzeit, News, Fotos oder Projekte von Schülern angezeigt.
+
+Verwaltet bzw. gesteuert wird dieses System mit dem Open-Source Produkt Xibo.
+
+Das Xibo setzt sich aus folgenden Komponenten zusammen:
+
+* Layout: +
+Ein Layout ist ein vollständiges Bildschirmdesign. Es besteht aus einer oder mehreren Regions, die Inhalte enthalten. Die Medien werden dem Layout mithilfe von Widgets zugewiesen.
+
+** Region: +
+Regionen definieren Bereiche in einem Layout, die Widgets (Medieninhalte) enthalten.
+
+* Display: +
+  Als Display wird der Monitor bezeichnet auf welchem ein Layout angezeigt wird.
+
+* Displaygroup: +
+Displaygroups enthalten mehrere Displays, um diese einfacher verwalten zu können.
+
+
+* Scheduler: +
+Mit dem Scheduler kann man einstellen welche Layouts wann auf welchem Display (Displaygroup) angezeigt werden.
+
+image:../images/xibo.png[logo,360,350]
+
+
+
+== XIBO Webclient
+Der Webclient dient dazu die Bedienung des XIBOS für User zu erleichtern und auf die wesentlichen Funktionen zu beschränken.
+
+* Funktionen des Webclients: +
+
+** Medien hochladen
+** Medien löschen
+** Medien downloaden
+** Medien mittes Drag'n'Drop einem Layout zuordnen
+** Anzeigedauer der Medien festlegen
+** ..
+
+

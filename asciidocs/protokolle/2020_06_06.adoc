@@ -1,0 +1,50 @@
+= Besprechungsprotokoll 06.06.2020
+Florian Schickmair
+1.0, 2020-05-25
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+
+
+|Prof. Stütz
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|Sa. 06.06.2020, 16:04 - 17:50
+
+|===
+
+
+
+== Besprochene Themen
+
+* Automatisierte Tests
+
+
+
+
+=== Vereinbarungen und Erledigungen
+
+Die Abfragen werden doch weiter mit Rest Assured durchgeführt (nicht mit dem Client selbst).
+Wir haben eine Quarkus Applikation (Keycloak) mit einem Post Endpoint verwendet um den verschickten Request analysieren zu können.
+
+Der Image Upload funktioniert jetzt.
+

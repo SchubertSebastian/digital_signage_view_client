@@ -1,0 +1,47 @@
+= Besprechungsprotokoll 07.05.2020
+Florian Schickmair
+1.0, 2020-04-27
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+|Prof. Engleitner
+|
+
+|Prof. Eisserer
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|Do. 07.5.2020, 5. Einheit
+
+|===
+
+
+
+== Besprochene Themen
+
+* Dukumentation der Rest Schnittstellen
+
+
+
+=== Vereinbarungen und Entscheidungen
+
+Für die jeweilige http Methode eine eigene Spalte in der Tabelle anlegen.
+

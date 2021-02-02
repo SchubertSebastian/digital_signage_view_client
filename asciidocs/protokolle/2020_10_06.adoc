@@ -1,0 +1,61 @@
+= Besprechungsprotokoll 06.10.2020
+Florian Schickmair
+1.0, 2020-06-14
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+
+|Prof. Stütz
+|
+
+|Prof. Aberger
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|Di. 06.10.2020 2. Einheit
+
+|===
+
+
+
+== Besprochene Themen
+
+* Proxy, GUI / Website
+
+
+=== Vereinbarungen und Ausführungen
+
+* Es wurde vereinbart, einen REST Proxy mit einem Tool (z.B. Postman) zu erstellen, um den Traffic zwischen View Client und XIBO CMS aufzeichnen zu können.
+
+
+* Es wurde vereinbart, eine Übersicht der REST Zugriffe in Form einer Website zu erstellen.
+** Dabei werden alle Endpoints dargestellt. (und von welchen Programmteilen was aufgefufen wird)
+** =>Verlinkte Darstellung wie bei Swagger-UI zum Aufklappen (Restendpointname >  aufklappen >  nähere Informationen)
++
+Endpoints, die  nicht verwendet werden, sollen z.B. ausgegraut werden.
+Daneben kann auf einem Button geklickt werden und der Test wird ausgeführt.
+
+
+
+image:../../images/swaggerui.PNG[swagger]
+
+
+

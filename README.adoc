@@ -1,33 +1,25 @@
-= WebClient - Angular
-Thomas W. Stütz <t.stuetz@htl-leonding.ac.at>
-2020-02-23
-:revnumber: {project-version}
-:example-caption!:
-ifndef::imagesdir[:imagesdir: images]
-ifndef::sourcedir[:sourcedir: ../../main/java]
-:icons: font
 
-== Istzustand
+//:stylesheet: custom.css
 
-.Anzeige aller Layout-Gruppen
-image:001-gui-gruppe.png[]
+= [heading]#Digital Signage VIEW CLIENT# image:images/logo.PNG[logo,160,110,role="right"]
 
-.Anzeige alle Displays, die der Layout-Gruppe zugeordnet ist
-image:002-gui-anzeige-diplays.png[]
+* Kurzbeschreibung des Projekts:
++
+An der HTL Leonding gibt es ein Digital-Signage-System, welches mit einem Open-Source Produkt betrieben wird.
+Neben diesem CMS gibt es auch noch einen Client.
+Wir überprüfen die REST-Schnittstellen des CMS bei neuen Produkt
+Releases, sodass der Client weiterhin funktionniert.
 
-.Layout-Editor (Hauptschirm)
-image:003-gui-layout.png[]
 
-.Sämtliche Regions sind editierbar
-image:004-gui-layouts3.png[]
-image:004-gui-layouts2.png[]
 
-IMPORTANT: Für die Laufschrift wurde eine Sonderlösung gewählt
 
-.Die Media-Library ist editierbar
-image:005-gui-layouts-medien.png[]
+---
+=== Links
+* Link zum Angular Webclient (Originalprojekt): +
++
+https://github.com/dispway/ng-weblient
 
-IMPORTANT: Jeder User (hier Feuerkogel) hat seine eigenen Medien-Files
+* Link zum temporären Test-Repo für den Angular Client:
++
+https://github.com/florianschickmair/NgClientRestTest
 
-.Jedes Medium kann editiert werden (up- und download)
-image:006-gui-layouts-edit-media.png[]

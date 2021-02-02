@@ -1,0 +1,52 @@
+= Besprechungsprotokoll 30.03.2020
+Florian Schickmair
+1.0, 2020-03-30
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+
+|Prof. Stütz
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|Mo. 30.3.2020, 1. und 2. Einheit
+
+|===
+
+
+
+== Besprochene Themen
+
+* Inhalte im README
+* Dokumentation der Rest Schnittstellen
+
+
+
+=== Vereinbarungen und Entscheidungen
+
+Infos auf der README.adoc im GitHub Repo eines Projektes: +
+1. Titel und kurze Beschreibung des Projekts +
+2. Link auf gh-pages +
+3. Installationsanleitung / Anleitung zum Starten des Projekts +
+Möglichkeiten zum Erstellen von Tests von REST-Services / CLients +
+- Java - Framework: REST assured +
+- JS-Framework Mocha + Chai +
+- Tool zB Postman oder Insomnia

@@ -1,0 +1,58 @@
+= Besprechungsprotokoll 11.05.2020
+Florian Schickmair
+1.0, 2020-04-27
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+|Prof. Reder
+|
+
+|Prof. Stütz
+|
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|Mo. 11.5.2020, 4. Einheit
+
+|===
+
+
+
+== Besprochene Themen
+
+* Automatisierte Tests
+
+
+
+
+=== Vereinbarungen und Entscheidungen
+
+* JUnit verwenden!
+
+* Anwendungsfälle: +
+** "möchte Layout verschieben"
+** "verschiebe Bild von 1. Position auf 3. Position"
+** Bild hochladen
+** ...
+--
+1. „Automatisierter Test gestartet“ +
+2. ...
+
+

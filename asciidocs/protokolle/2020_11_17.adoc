@@ -1,0 +1,51 @@
+= Besprechungsprotokoll 17.11.2020
+Florian Schickmair
+1.0, 2020-06-14
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:toc: left
+
+.Teilnehmer
+|===
+|anwesend |Verteiler
+
+|Florian Schickmair
+|
+
+|Sebastian Schubert
+|
+
+
+|Prof. Stütz
+|
+
+|Prof. Aberger
+|
+
+
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|Zeit
+|Di. 17.11.2020 10:30
+
+|===
+
+
+
+== Besprochene Themen
+
+* Karate Tests
+
+
+=== Vereinbarungen und Ausführungen
+
+* Es wurde vereinbart zunächst ein eigenes quarkus Projekt zu erstellen und ein lokales XIBO CMS aufzusetzten und diese Endpoints zu testen.
+** Wir haben uns dafür entschieden den noch laufenden XIBO Test Server zu verwenden (vm82.htl-leonding.ac.at).
+* Systemarchitektur: +
+image:../../images/archi.PNG[archi]

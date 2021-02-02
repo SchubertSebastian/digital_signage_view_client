@@ -1,0 +1,140 @@
+= Digital Signage View Client
+Florian Schickmair Sebastian Schubert
+1.0.1, 2020-04-18
+:sourcedir: ../src/main/java
+:icons: font
+:toc: left
+
+
+
+== Pflichtenheft: "Was mache ich"
+
+
+=== Ausgangssituation
+
+Die HTL Leonding ist eine mittelgroße Schule im Zentralraum OÖ. Einer der Ausbildungszweige ist IT Medientechnik.
+
+=== Istzustand
+
+An der HTL Leonding wird ein Digital Signage System verwendet um beispielsweise Wetter-Informationen, Uhrzeit, News, Fotos oder Projekte von Schülern anzeigen bzw. herzeigen zu können.
+
+Verwaltet bzw. gesteuert wird dieses System mit dem Open-Source Produkt XIBO.
+
+Es gibt bereits einen bestehenden Client, welcher jedoch nicht genau für die Schule abgestimmt ist.
+
+=== Problemstellung
+
+ - Der Direktor geht mit Gästen durch die Schule und redet über Projekte, dabei möchte er auf einem bestimmten Display bestimmte Inhalte wie z.B. ein Videoprojekt herzeigen können.
+ - Inhalte sollen schnell auf einzelnen Displays angezeigt werden können. Beispielseise sollen schulweit Meldungen verbreitet werden, Infos zu Veranstaltungen angezeigt werden oder schnell über Notfälle informiert werden.
+
+=== Aufgabenstellung
+
+
+* Dokumentation des bestehenden Systems
+** Benutzerdokumentation
+*** für das Backend (wie muss ich ein Layout erstellen, dass der Webclient dieses benutzen kann)
+*** für das Frontend (ein einfaches Manual für einen Benutzer)
+
+* Es soll sichergestellt werden, dass der Client korrekt arbeitet und dass sich die Schnittstelle vom CMS nicht geändert hat.
+
+*	 Authentifizierung,
+REST-API
+* eventuell Implementierung weiterer Funktionen (Wetter Widget, Darstellen von Eilmeldungen für die Administration)
+
+
+==== Funktionale Anforderungen
+* Berechtigte Personen möchten Medien/Inhalte auf dem Digital Signage abrufen können und diese mit Hilfe einer App  steuern.
+* Berechtigte Personen möchten Overlay-Massages auf bestimmten Displays zeitgesteuert publishen. (z.B. das Sekretariat Eilmeldungen)
+* Ein Content Betreuer der Videowall (Schüler/Lehrer) möchte schnell Inhalte auf dieser verändern und hochladen können.
+
+[plantuml,"seq2",png]
+----
+left to right direction
+skinparam packageStyle rectangle
+actor berechtigte_Personen
+actor Content_Betreuer
+actor vm82_Testsystem
+rectangle Webclient {
+  berechtigte_Personen -- (Lokaler Medienabruf)
+  berechtigte_Personen -- (Overlay-Massages publishen, zeitgesteuert)
+Content_Betreuer -- (Inhalte von Layouts gestalten)
+(Inhalte von Layouts gestalten) -- vm82_Testsystem
+(Funktionalität sicherstellen) .> (Inhalte von Layouts gestalten)
+
+
+}
+----
+
+
+
+
+==== Nichtfunktionale Anforderungen (NFA)
+=== Ziele
+
+Ziel des Projektes ist es, dass die Schüler immer möglichst aktuell informiert sind und die Informationen nur in den Teilen der
+Schule verbreitet werden in denen diese benötigt werden.
+
+
+=== Mengengerüst
+
+
+Der Client wird von maximal 10 Personen gleichzeitig benutzt werden.
+Auf dem Client werden keine Daten gespeichert, sondern nur auf das CMS System hochgeladen.
+Daher braucht der Server keinen großen Speicher, sondern eine gute Internetverbindung.
+
+== Entwurf "Wie mache ich es"
+=== Systemarchitektur
+
+[plantuml,sysarch,png]
+----
+
+node "SERVER"{
+
+node "WEBCLINET" {
+[Rest View]
+
+}
+
+
+[PROXY]
+
+
+}
+
+node "XIBO" {
+[Rest]
+
+}
+
+node "BROWSER" {
+[Rest Client]
+
+}
+
+
+[PROXY] -- [Rest View]
+[PROXY] -- [Rest]
+[PROXY] -- [Rest Client]
+
+
+
+
+
+
+----
+
+== Projekthandbuch "Organisatorische Rahmenbedingungen"
+
+=== GANTT-Diagramm
+
+image:images/screenshot.svg[]
+
+
+
+== Youtrack-Diagram
+
+image:images/sprints.PNG[]
+
+
+//== link:allgemeine-infos.html["CMS und Webclient - Übersicht",role=teal]
+
