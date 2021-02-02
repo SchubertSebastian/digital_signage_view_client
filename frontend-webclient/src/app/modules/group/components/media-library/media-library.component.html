@@ -1,0 +1,41 @@
+<mat-form-field class="search-field">
+  <mat-label>Search</mat-label>
+  <input matInput (keyup)="filterMedia($event.target.value)" />
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+
+<mat-table #mediaLibrary [dataSource]="mediaDataSource" cdkDropList cdkDropListSortingDisabled
+  [cdkDropListData]="mediaDataSource?.data" [cdkDropListConnectedTo]="connectedTo" [id]="mediaLibraryId"
+  appDndCopySource (appDndCopySourceData)="handleNewMediaList($event)">
+
+  <!-- Preview Column -->
+  <ng-container matColumnDef="preview">
+    <mat-cell *matCellDef="let row" class="first-cell">
+      <app-api-media [media-id]="row.mediaId"></app-api-media>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <mat-cell *matCellDef="let row" class="third-cell">
+      <button mat-icon-button (click)="openMediaDialog(row)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <div>
+    <mat-row *matRowDef="let row; columns: ['preview', 'name', 'actions']" cdkDrag [cdkDragData]="row">
+    </mat-row>
+  </div>
+</mat-table>
+
+<div matRipple appDragAndDropFile class="upload-area" (click)="fileInput.click()" (onFileDropped)="uploadFile($event)">
+  <input hidden type="file" multiple #fileInput (change)="uploadFile($event.target.files)" />
+  Upload a file
+</div>

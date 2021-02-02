@@ -1,0 +1,126 @@
+@import "../../../../../assets/scss/variables";
+$toolbar-footer-height: 4.2rem;
+$static-height: calc(
+  100vh - #{$header-height} - #{$toolbar-footer-height} - #{$footer-height}
+);
+$library-width: 36%;
+
+// Main:
+
+.group-detail-wrapper {
+  width: 100%;
+  display: flex;
+  padding-bottom: $toolbar-footer-height;
+
+  .content-controls {
+    position: sticky;
+    top: 0;
+    flex: 0 0 $library-width;
+    box-sizing: border-box;
+    padding: 2rem 1rem;
+    height: $static-height;
+
+    mat-card {
+      height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .regions {
+    flex: 1 0 100% - $library-width;
+    box-sizing: border-box;
+    padding: 2rem 1rem 0 0;
+
+    h1 {
+      margin: 0 0 1rem 0 !important;
+    }
+
+    .display-list {
+      margin-bottom: 1rem;
+    }
+
+    .display-list-chips-container {
+      display: flex;
+      align-items: center;
+
+      mat-chip-list {
+        margin-left: 0.8rem;
+      }
+    }
+
+    h2 {
+      padding: 1rem 0 0 1rem;
+    }
+
+    .region-card {
+      padding: 0;
+      margin: 0 auto 1rem;
+
+      table {
+        width: 100%;
+
+        // mat-row mat-cell:first-child, mat-header-row mat-header-cell:first-child {
+        //   flex: 0 0 50px;
+        // }
+      }
+    }
+  }
+}
+
+// Drag and Drop:
+
+.cdk-drop-list-dragging mat-row:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+// Footer styling:
+
+footer {
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: $footer-height;
+  width: 100%;
+  height: $toolbar-footer-height;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 0px -3px 5px -1px rgba(0, 0, 0, 0.2);
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  app-module-list {
+    width: 0;
+    flex: 1;
+  }
+
+  .footer-controls {
+    display: flex;
+    padding: 1rem;
+
+    button {
+      &:not(:first-child) {
+        margin-left: 1rem;
+      }
+
+      &.back-button {
+        width: 86px;
+      }
+
+      &.save-button {
+        width: 104px;
+      }
+
+      ::ng-deep .mat-button-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+    }
+  }
+}
+
+.selected-row {
+  background-color: #ededed;
+}

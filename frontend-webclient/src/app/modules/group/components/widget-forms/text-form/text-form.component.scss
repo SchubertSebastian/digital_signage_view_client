@@ -1,0 +1,12 @@
+.text-form {
+  display: flex;
+  flex-direction: column;
+
+  app-base-form {
+    flex: 0 0 auto;
+  }
+
+  & > * {
+    flex: 1 0 auto;
+  }
+}

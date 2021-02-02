@@ -1,0 +1,12 @@
+<div class="module-list" cdkDropList [cdkDropListData]="moduleOptionValues" cdkDropListSortingDisabled
+  cdkDropListOrientation="horizontal" [cdkDropListConnectedTo]="connectedTo" [id]="id" appDndCopySource>
+
+  <div *ngFor="let moduleOptionValue of moduleOptionValues" class="module-item module-item-background" cdkDrag
+    [cdkDragData]="moduleOptionValue">
+    <ng-container *ngIf="getOption(moduleOptionValue) as option">
+      <mat-icon>{{ option.icon }}</mat-icon>
+      <span class="label-span">{{ option.label }}</span>
+    </ng-container>
+  </div>
+
+</div>

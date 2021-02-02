@@ -1,0 +1,24 @@
+.module-list {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  overflow-x: auto;
+}
+
+.module-item {
+  height: 100%;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  cursor: default;
+  user-select: none;
+
+  .label-span {
+    margin-left: 0.3rem;
+  }
+}
+
+.module-item-background:nth-child(odd) {
+  background: #ebebeb;
+}

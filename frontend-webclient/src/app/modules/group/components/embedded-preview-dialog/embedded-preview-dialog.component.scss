@@ -1,0 +1,14 @@
+$border: 2px;
+
+mat-dialog-content {
+  height: 65vh;
+  width: 100%;
+  padding: $border;
+  margin: 0;
+  overflow: hidden;
+
+  .wrapper {
+    border: $border solid rgba(0, 0, 0, 0.75);
+    border-radius: 2px;
+  }
+}

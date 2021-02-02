@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>{{ media.name }}</h2>
+<mat-dialog-content>
+    <img [src]="dataUrl"/>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Back</button>
+    <button mat-button (click)="downloadMedia()">Download</button>
+    <button mat-button color="warn" (click)="deleteMedia()">Delete</button>
+</mat-dialog-actions>

@@ -1,0 +1,21 @@
+= Webclient frontend
+
+== Docker
+
+=== Build
+
+To build the frontend use the following command:
+
+[source,bash]
+....
+docker build -t dispway/webclient-web .
+....
+
+=== Usage
+
+This image starts a webserver on the port 80 and responds only to the environment variable `API_HOST` (The trailing `/api` is essential). The `API_HOST` tells the SPA where to make the requests and should be define when the container is starting and not afterwards. If `API_HOST` is not defined the webserver uses the default value in the `environment.prod.ts` file:
+
+[source,bash]
+....
+docker run -p 80:80 -e API_HOST=https://example.museum.com/api dispway/webclient-web
+....

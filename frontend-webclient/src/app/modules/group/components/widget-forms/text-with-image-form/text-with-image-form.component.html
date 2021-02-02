@@ -1,0 +1,14 @@
+<app-media-library [connectedTo]="dropzoneId"></app-media-library>
+
+<div [formGroup]="form" class="text-with-image-form">
+  <app-base-form [formGroup]="form" [widget]="widget"></app-base-form>
+  <div class="text-image-editor">
+    <div class="dropzone" [id]="dropzoneId" cdkDropList cdkDrop (cdkDropListDropped)="drop($event)">
+      {{ media?.name || 'image' }}
+    </div>
+    <div class="summernote-wrapper" formGroupName="widgetOptions">
+      <div [ngxSummernote]="config" formControlName="text"></div>
+    </div>
+  </div>
+  <button mat-button class="preview-button" (click)="openEmbeddedPreview()">Preview</button>
+</div>

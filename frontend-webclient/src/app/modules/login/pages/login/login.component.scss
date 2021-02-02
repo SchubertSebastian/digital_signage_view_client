@@ -1,0 +1,21 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+mat-card {
+  box-sizing: border-box;
+  width: 52%;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+
+  mat-form-field {
+    display: block;
+  }
+}
+
+.login-fail-message {
+  color: #f44336;
+}

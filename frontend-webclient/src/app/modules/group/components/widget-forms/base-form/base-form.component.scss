@@ -1,0 +1,16 @@
+:host,
+.row {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.row-1 {
+  flex-direction: row;
+  justify-content: space-between;
+
+  mat-form-field {
+    width: 48%;
+  }
+}

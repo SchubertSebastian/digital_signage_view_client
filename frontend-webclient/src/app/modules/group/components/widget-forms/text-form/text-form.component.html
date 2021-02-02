@@ -1,0 +1,7 @@
+<div class="text-form" [formGroup]="form">
+  <app-base-form [formGroup]="form"></app-base-form>
+
+  <ng-container formGroupName="widgetOptions">
+    <div [ngxSummernote]="config" formControlName="text"></div>
+  </ng-container>
+</div>

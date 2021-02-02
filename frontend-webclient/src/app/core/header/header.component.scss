@@ -1,0 +1,26 @@
+@import "../../../assets/scss/variables";
+
+mat-toolbar {
+  box-shadow: 0 4px 12px -1px rgba(0, 0, 0, 0.45);
+  height: $header-height;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  padding: 0.2rem 1rem;
+}
+
+.text {
+  margin-left: 1rem;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}
+
+.logout-button {
+  color: #f44336;
+}

@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.search-field {
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+mat-table {
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+.upload-area {
+  flex: 0 0 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 2px dashed #bdbdbd;
+  margin: 1rem 1rem 2px;
+  cursor: pointer;
+}
+
+.first-cell {
+  padding-left: 0;
+  padding-right: 6px;
+  flex: 0 0 4.2rem;
+}
+
+.third-cell {
+  padding-right: 0;
+  flex: 0 0 auto;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+app-api-media {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-row,
+mat-cell {
+  height: 48px;
+}

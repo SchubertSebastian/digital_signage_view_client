@@ -1,0 +1,9 @@
+<div class="group-wrapper">
+  <h1 class="main-heading">Select a Group:</h1>
+  <hr />
+  <div class="group-button-wrapper">
+    <button mat-raised-button *ngFor="let layout of layouts" (click)="navigateToGroup(layout)">
+      {{ layout.layout }}
+    </button>
+  </div>
+</div>

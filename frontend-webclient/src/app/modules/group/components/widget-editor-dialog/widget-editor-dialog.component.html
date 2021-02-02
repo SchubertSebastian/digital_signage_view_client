@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Editor</h2>
+
+<mat-dialog-content>
+    <app-widget-editor #editor (ready)="initValueDetection()"></app-widget-editor>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [disabled]="!isValid" (click)="save()">Save</button>
+</mat-dialog-actions>

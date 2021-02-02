@@ -1,0 +1,46 @@
+= Docker Images for development with docker-compose
+
+This docker-compose will reduce the time of setting up a development enviroment. This compose has 2 major parts:
+
+== Keycloak
+
+The custom keycloak image is configured with the following:
+
+* A realm called `dispway`
+* A service called `webclient` with the secret `f203438c-d453-453d-8c66-9e5f22aaf80a`, configured to be used as a service account and external authentication with a mapper `webclient_access` for user corresponding attribute.
+* An user with the name `scott`, password `tiger` and the following webclient_access: `{ write: ["a"], read: ["b"] }`
+
+== Xibo
+
+The xibo has following configuration:
+
+* 2 layouts: `Default Layout` with the tag `a`, `Second Layout` with the tag `b`
+* 2 images: `Default Layout Background` with the tag `a`, `Logo` with the tag `b`
+* An application called `webclient` with following:
+** Client Id: `mV5PIfqjstasaG1rQwDVtJuF83qkheEjXtkOa61c`
+** Client Secret: `sr2SYA2JmelCV8H1UqzP1q4Pbg2ziqqJicWwaORzKfPsRXpZsUvQtXNGDqvRqCQ5FU4goKqqB7PHhqxfUESQQdEhMI7FatdLMTSY4nC8uqa8NfhfSnmN7eu2hz7FerpdKQdIDsxl6PTlq9OzrOw3SPOfU05LB1YJxLFmYNcj0f9uFFhP90fjURVsWXz1DA0zE76k8j3nUrJwGruSgatYFEB6kzBtx57DL1lxL3wtyiGPDcHo00ggUdszXXCgK7`
+
+== General information
+
+2 ports are mapped:
+
+* Xibo runs on the `80` port
+* Keycloak runs on the `8080` port
+
+== Updating the state
+
+To update the state of the keycloak you could write into the link:keycloak/dispway-realm.json[dispway-realm.json] if you know what you are doing. Else you could export a realm and look at the values and names and copy them to the json.
+
+Updating xibo is way easier than updating keycloak. All you need to do is make your changes on the cms. When you are finished all you have to do is execute the following:
+
+[source, bash]
+----
+docker exec -i webclient-cms-db /usr/bin/mysqldump \ <1>
+    -u cms \ <2>
+    --pasword=password \ <3>
+    cms > xibo.sql <4>
+----
+<1> Execute `mysqldump` in the database container
+<2> User `cms`
+<3> Passowrd `password`
+<4> Database `cms`. Pipe the output

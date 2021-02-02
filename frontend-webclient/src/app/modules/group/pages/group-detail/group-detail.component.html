@@ -1,0 +1,95 @@
+<div class="group-detail-wrapper" *ngIf="layout != null">
+  <div class="content-controls">
+    <mat-card>
+      <app-media-library [connectedTo]="lists" [mediaLibraryId]="mediaLibraryId"></app-media-library>
+    </mat-card>
+  </div>
+
+  <div class="regions">
+    <h1 class="main-heading">Display Gruppe: {{ layout.layout }}</h1>
+
+    <div class="display-list">
+      <div *ngIf="layout.displays?.length > 0; else noDisplay" class="display-list-chips-container">
+        Displays:
+        <mat-chip-list>
+          <mat-chip *ngFor="let display of layout.displays">{{ display.display }}</mat-chip>
+        </mat-chip-list>
+      </div>
+      <ng-template #noDisplay>No Display available</ng-template>
+    </div>
+
+    <mat-card class="region-card" *ngFor="let region of layout.regions; let i = index">
+      <h2 class="main-heading">Region: {{ region.name }}</h2>
+
+      <mat-table [dataSource]="region.regionPlaylist.widgets" cdkDropList
+        (cdkDropListDropped)="drop($event, i, region.regionPlaylist)" [cdkDropListData]="region.regionPlaylist.widgets"
+        appDndCopyDestination>
+        <!-- Drag and Drop Column -->
+        <ng-container matColumnDef="dragAndDrop">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef cdkDrag cdkDragRootElement="mat-row" class="drag-and-drop-cell">
+            <mat-icon cdkDragHandle>drag_indicator</mat-icon>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef>name</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ getWidgetName(row) }}</mat-cell>
+        </ng-container>
+
+        <!-- Duration Column -->
+        <ng-container matColumnDef="duration">
+          <mat-header-cell *matHeaderCellDef>duration</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.duration }}</mat-cell>
+        </ng-container>
+
+        <!-- From Column -->
+        <ng-container matColumnDef="from">
+          <mat-header-cell *matHeaderCellDef>from</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ getDate(row.fromDt) | date: 'dd.MM.yyyy' }}</mat-cell>
+        </ng-container>
+
+        <!-- To Column -->
+        <ng-container matColumnDef="to">
+          <mat-header-cell *matHeaderCellDef>to</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ getDate(row.toDt) | date: 'dd.MM.yyyy' }}</mat-cell>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>actions</mat-header-cell>
+          <mat-cell *matCellDef="let row; let j = index">
+            <button mat-icon-button (click)="deleteRow(region.regionPlaylist.widgets, j, i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button (click)="editRow(row, region)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="['dragAndDrop', 'name', 'duration', 'from', 'to', 'actions']">
+        </mat-header-row>
+        <mat-row
+          *matRowDef="let row; columns: ['dragAndDrop', 'name', 'duration', 'from', 'to', 'actions']; let i = index">
+        </mat-row>
+      </mat-table>
+    </mat-card>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-controls">
+    <button mat-button class="back-button" [routerLink]="['../']">
+      <mat-icon>keyboard_backspace</mat-icon>
+      back
+    </button>
+    <button mat-flat-button color="primary" class="save-button" (click)="save()">
+      <span>Save</span>
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+
+  <app-module-list [connectedTo]="lists" [id]="moduleListId"></app-module-list>
+</footer>

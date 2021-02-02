@@ -1,0 +1,10 @@
+.dynamic-host-wrapper {
+  height: 100%;
+  & > * {
+    height: 100%;
+  }
+}
+
+:host ::ng-deep app-media-library {
+  height: 65vh !important;
+}

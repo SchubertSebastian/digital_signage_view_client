@@ -1,0 +1,32 @@
+version: '2.1'
+services:
+  db:
+    image: mysql:5.6
+    volumes:
+      - ./xibo.sql:/docker-entrypoint-initdb.d/xibo.sql
+    environment:
+      MYSQL_DATABASE: cms
+      MYSQL_USER: cms
+      MYSQL_PASSWORD: cms
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+  xmr:
+    image: xibosignage/xibo-xmr:release-0.8
+  web:
+    image: xibosignage/xibo-cms:release-2.3.7
+    environment:
+      MYSQL_DATABASE: cms
+      MYSQL_USER: cms
+      MYSQL_PASSWORD: cms
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+  quickchart:
+    image: ianw/quickchart
+  identity-provider:
+    image: jboss/keycloak:11.0.2
+    command: [ '-b', '0.0.0.0', '-Dkeycloak.migration.action=import', '-Dkeycloak.profile.feature.upload_scripts=enabled', '-Dkeycloak.migration.provider=singleFile', '-Dkeycloak.migration.file=/tmp/dispway-realm.json' ]
+    volumes:
+      - ./dispway-realm.json:/tmp/dispway-realm.json
+    environment:
+      KEYCLOAK_USER: dispway
+      KEYCLOAK_PASSWORD: dispway
+      DB_VENDOR: h2

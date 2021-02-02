@@ -1,0 +1,25 @@
+<ng-container [formGroup]="formGroup">
+  <div class="row row-1" formGroupName="widgetOptions">
+    <mat-form-field>
+      <mat-label>name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>duration</mat-label>
+      <input type="number" matInput formControlName="duration" />
+    </mat-form-field>
+  </div>
+
+  <div class="row row-2">
+    <mat-form-field>
+      <mat-label>from - to</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate formControlName="fromDt" placeholder="Start date" />
+        <input matEndDate formControlName="toDt" placeholder="End date" />
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </div>
+</ng-container>

@@ -1,0 +1,25 @@
+@import '../../../../../assets/scss/webclient-theme.scss';
+
+.group-wrapper {
+  width: 82%;
+  margin: 0 auto;
+
+  .group-button-wrapper {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+
+    button {
+      box-sizing: content-box;
+      display: inline-block;
+      min-width: 140px;
+      text-align: center;
+      padding: 0.35rem 1rem !important;
+      margin: 1rem 0.3rem 0;
+      color: mat-color($webclient-primary, A200);
+    }
+  }
+
+}

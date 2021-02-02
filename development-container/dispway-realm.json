@@ -1,0 +1,60 @@
+{
+    "realm": "dispway",
+    "enabled": true,
+    "requiredCredentials": [
+        "password"
+    ],
+    "users": [
+        {
+            "username": "scott",
+            "enabled": true,
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "tiger"
+                }
+            ],
+            "attributes": {
+                "webclient_access": "{\"write\": [\"a\"], \"read\": [\"b\"]}"
+            }
+        }
+    ],
+    "clients": [
+        {
+            "clientId": "webclient",
+            "enabled": true,
+            "secret": "f203438c-d453-453d-8c66-9e5f22aaf80a",
+            "redirectUris": [
+                "localhost"
+            ],
+            "bearerOnly": false,
+            "directAccessGrantsEnabled": true,
+            "serviceAccountsEnabled": true,
+            "authorizationServicesEnabled": true,
+            "publicClient": false,
+            "protocol": "openid-connect",
+            "standardFlowEnabled": true,
+            "implicitFlowEnabled": false,
+            "attributes": {
+                "access.token.lifespan": "4140"
+            },
+            "protocolMappers": [
+                {
+                    "id": "247b8055-374b-4259-92b7-616b6e30f1fe",
+                    "name": "webclient_access",
+                    "protocol": "openid-connect",
+                    "protocolMapper": "oidc-usermodel-attribute-mapper",
+                    "consentRequired": false,
+                    "config": {
+                        "userinfo.token.claim": "true",
+                        "user.attribute": "webclient_access",
+                        "id.token.claim": "true",
+                        "access.token.claim": "true",
+                        "claim.name": "webclient_access",
+                        "jsonType.label": "String"
+                    }
+                }
+            ]
+        }
+    ]
+}
