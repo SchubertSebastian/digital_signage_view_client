@@ -13,4 +13,9 @@ public class LibraryItemTest {
     Karate testPostImage() {
         return Karate.run("library-post").relativeTo(getClass());
     }
+
+    @Karate.Test
+    Karate testDeleteLibraryItem() {
+        return Karate.run("library-delete").relativeTo(getClass());
+    }
 }
