@@ -23,3 +23,18 @@ https://github.com/dispway/ng-weblient
 +
 https://github.com/florianschickmair/NgClientRestTest
 
+---
+
+== Manual Deployment
+
+Wechseln sie in das Verzeichnis '/backend-webclient' und stellen sie Sicher das Java in der version 11 verwendet wird.
+
+Danach führen sie folgenden Befehl aus um den Testcontaner zu starten.
+
+----
+[sudo] docker build -f src/main/docker/Dockerfile.multistage.jvm -t dispway/webclient-jvm .
+---- 
+
+Um nun die Tests auszuführen 'mvnw clean test' eingeben. 
+
+
