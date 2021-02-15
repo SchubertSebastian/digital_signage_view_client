@@ -7,7 +7,8 @@
 +
 An der HTL Leonding gibt es ein Digital-Signage-System, welches mit einem Open-Source Produkt betrieben wird.
 Neben diesem CMS gibt es auch noch einen Client. +
-Wir erstellen Tests, welche die REST-Schnittstellen des CMS überprüfen, sodass der Client auch bei neuen Produkt-Releases weiterhin funktioniert.
+Wir erstellen Tests, welche die REST-Schnittstellen des CMS überprüfen, sodass der Client
+auch bei neuen Produkt-Releases des CMS Systems weiterhin funktioniert.
 
 
 
