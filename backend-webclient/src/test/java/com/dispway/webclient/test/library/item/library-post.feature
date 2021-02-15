@@ -14,3 +14,16 @@ Feature: Uploading a a library item to the server
     When method POST
     Then status 200
     And print 'Response is: ', response
+
+
+
+  Scenario: Post O bit png
+    * def myFile = {filename: 'testimg0.png', read: 'testimg.png', contentType: 'image/png' }
+
+    Given path 'library'
+    And header Content-Type = 'multipart/form-data'
+    And multipart file files = myFile
+    When method POST
+    Then status 200
+    And print 'Response is: ', response
+
