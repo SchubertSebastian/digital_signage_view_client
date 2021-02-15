@@ -1,11 +1,11 @@
-Feature: Uploading a picture to the server
+Feature: Uploading a a library item to the server
 
   Background:
     * url xiboHost + '/api'
     * def loginResponse = call read('classpath:login.feature')
     * header Authorization = 'Bearer ' + loginResponse.token
 
-  Scenario: Post a normal
+  Scenario: Post a valid image
     * def myFile = {filename: 'testimg.png', read: 'testimg.png', contentType: 'image/png' }
 
     Given path 'library'

@@ -5,6 +5,7 @@ Feature: Get displays
     * def loginResponse = call read('classpath:login.feature')
     * header Authorization = 'Bearer ' + loginResponse.token
 
+    # parameter displaygroupid: /?displayGroupId=39
   Scenario: get all displays from a displaygroup by displaygroupId
     Given path '/display'
     When method GET
