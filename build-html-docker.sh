@@ -31,7 +31,7 @@ docker run --rm \
            -b html5 \
            '*.adoc' && rm -rf ./.asciidoctor && echo Done"
 
-rm -rf -v $BUILD_DIR/revealjs
+#rm -rf -v $BUILD_DIR/revealjs
 #rm -rf -v $BUILD_DIR/.asciidoctor
 rm -rf -v $BUILD_DIR/*.adoc
 rm -v $BUILD_DIR/docinfo.html
