@@ -25,12 +25,13 @@ Für eine erleichterte Bedienung des CMS gibt es bereits einen bestehenden Clien
 
 
 === Problemstellung
+- Nach einem Update des CMS Systems funktioniert der Client nicht mehr.
+
 
  - Der Direktor geht mit Gästen durch die Schule und redet über Projekte, dabei möchte er auf einem bestimmten Display bestimmte Inhalte wie z.B. ein Videoprojekt herzeigen können.
 
-- Nach einem Update des CMS Systems funktioniert der Client nicht mehr.
 
-(-) Inhalte sollen schnell auf einzelnen Displays angezeigt werden können. Beispielseise sollen schulweit Meldungen verbreitet werden, Infos zu Veranstaltungen angezeigt werden oder schnell über Notfälle informiert werden.
+- Inhalte sollen schnell auf einzelnen Displays angezeigt werden können. Beispielseise sollen schulweit Meldungen verbreitet werden, Infos zu Veranstaltungen angezeigt werden oder schnell über Notfälle informiert werden.
 
 === Aufgabenstellung
 
@@ -128,19 +129,4 @@ node "BROWSER" {
 
 
 ----
-
-== Projekthandbuch "Organisatorische Rahmenbedingungen"
-
-=== GANTT-Diagramm
-
-image:images/screenshot.svg[]
-
-
-
-== Youtrack-Diagram
-
-image:images/sprints.PNG[]
-
-
-//== link:allgemeine-infos.html["CMS und Webclient - Übersicht",role=teal]
 
