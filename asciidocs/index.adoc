@@ -20,14 +20,22 @@ An der HTL Leonding wird ein Digital Signage System verwendet um beispielsweise 
 
 Verwaltet bzw. gesteuert wird dieses System mit dem Open-Source Produkt XIBO.
 
-Es gibt bereits einen bestehenden Client, welcher jedoch nicht genau für die Schule abgestimmt ist.
+Für eine erleichterte Bedienung des CMS gibt es bereits einen bestehenden Client. Dieser beschränkt sich auf die wesentlichen Funktionen, wie z.B. Medien hochladen, löschen oder downloaden.
+
+
 
 === Problemstellung
+- Nach einem Update des CMS Systems funktioniert der Client nicht mehr.
+
 
  - Der Direktor geht mit Gästen durch die Schule und redet über Projekte, dabei möchte er auf einem bestimmten Display bestimmte Inhalte wie z.B. ein Videoprojekt herzeigen können.
- - Inhalte sollen schnell auf einzelnen Displays angezeigt werden können. Beispielseise sollen schulweit Meldungen verbreitet werden, Infos zu Veranstaltungen angezeigt werden oder schnell über Notfälle informiert werden.
+
+
+- Inhalte sollen schnell auf einzelnen Displays angezeigt werden können. Beispielseise sollen schulweit Meldungen verbreitet werden, Infos zu Veranstaltungen angezeigt werden oder schnell über Notfälle informiert werden.
 
 === Aufgabenstellung
+
+* Es soll sichergestellt werden, dass der Client korrekt arbeitet und dass sich die Schnittstelle vom CMS nicht geändert hat.
 
 
 * Dokumentation des bestehenden Systems
@@ -35,7 +43,6 @@ Es gibt bereits einen bestehenden Client, welcher jedoch nicht genau für die Sc
 *** für das Backend (wie muss ich ein Layout erstellen, dass der Webclient dieses benutzen kann)
 *** für das Frontend (ein einfaches Manual für einen Benutzer)
 
-* Es soll sichergestellt werden, dass der Client korrekt arbeitet und dass sich die Schnittstelle vom CMS nicht geändert hat.
 
 *	 Authentifizierung,
 REST-API
@@ -122,19 +129,4 @@ node "BROWSER" {
 
 
 ----
-
-== Projekthandbuch "Organisatorische Rahmenbedingungen"
-
-=== GANTT-Diagramm
-
-image:images/screenshot.svg[]
-
-
-
-== Youtrack-Diagram
-
-image:images/sprints.PNG[]
-
-
-//== link:allgemeine-infos.html["CMS und Webclient - Übersicht",role=teal]
 
