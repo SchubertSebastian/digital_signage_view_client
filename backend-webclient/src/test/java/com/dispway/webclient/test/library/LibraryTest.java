@@ -28,7 +28,7 @@ public class LibraryTest {
 
     @Karate.Test
     Karate testDownloadMedia() {
-        return Karate.run("getAllMedia").relativeTo(getClass());
+        return Karate.run("downloadMedia").relativeTo(getClass());
     }
 
 }
