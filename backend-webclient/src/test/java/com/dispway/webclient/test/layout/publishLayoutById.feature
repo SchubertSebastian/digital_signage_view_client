@@ -1,5 +1,4 @@
-@ignore
-Feature: Todo
+Feature: publish a Layout by its id
 
   Background:
     * url xiboHost + '/api'
@@ -7,4 +6,10 @@ Feature: Todo
     * header Authorization = 'Bearer ' + loginResponse.token
 
   Scenario: Todo
-    * assert 1 == 2
+    Given path '/layout/publish/3'
+    And header Content-Type = 'multipart/form-data'
+    And multipart field publishNow = 1
+    And request 1
+    When method put
+    Then status 200
+    And print 'Response is: ', response

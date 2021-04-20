@@ -4,7 +4,7 @@ Feature: Test the token request [Background]
     * url xiboHost + '/api'
     * def loginResponse = call read('classpath:login.feature')
     * header Authorization = 'Bearer ' + loginResponse.token
-    
+
 
   Scenario: Normal
 

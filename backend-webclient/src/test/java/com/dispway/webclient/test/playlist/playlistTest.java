@@ -26,7 +26,6 @@ public class playlistTest {
         return Karate.run("updateWidgetExpiration").relativeTo(getClass());
     }
 
-
     @Karate.Test
     Karate testCreateWidget() {
         return Karate.run("createWidget").relativeTo(getClass());
